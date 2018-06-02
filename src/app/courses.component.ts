@@ -14,10 +14,10 @@ import { CoursesService } from './courses.service';
               <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
               <br><br>
               {{ course.title }} <br>
-              {{ course.students }} <br>
-              {{ course.rating | number }} <br>
-              {{ course.price }} <br>
-              {{ course.releaseDate }}
+              {{ course.students | number }} <br>
+              {{ course.rating | number:'1.2-2' }} <br>
+              {{ course.price | currency }} <br>
+              {{ course.releaseDate | date:'mediumDate' }}
             `
 })
 export class CoursesComponent {
