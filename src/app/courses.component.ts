@@ -11,7 +11,7 @@ import { CoursesService } from './courses.service';
               <!-- Property bingding -->
               <img [src]="imageUrl" />
               <br>
-              <input (keyup.enter)="onKeyUp()" />
+              <input #email (keyup.enter)="onKeyUp(email.value)" />
             `
 })
 export class CoursesComponent {
@@ -24,7 +24,7 @@ export class CoursesComponent {
     this.courses = service.getCourses();
   }
 
-  onKeyUp() {
-    console.log("Enter was pressed");
+  onKeyUp(email) {
+    console.log(email);
   }
 }
