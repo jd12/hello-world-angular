@@ -10,6 +10,8 @@ import { CoursesService } from './courses.service';
               </ul>
               <!-- Property bingding -->
               <img [src]="imageUrl" />
+              <br>
+              <button class="btn btn-primary">Save</button>
             `
 })
 export class CoursesComponent {
