@@ -11,13 +11,15 @@ import { CoursesService } from './courses.service';
               <!-- Property bingding -->
               <img [src]="imageUrl" />
               <br>
-              <input #email (keyup.enter)="onKeyUp(email.value)" />
+              <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
             `
 })
 export class CoursesComponent {
   title = "List of courses"
   courses;
+  email = "me@example.com";
   imageUrl = "https://picsum.photos/400/200";
+
 
 
   constructor(service: CoursesService) {
@@ -25,6 +27,6 @@ export class CoursesComponent {
   }
 
   onKeyUp(email) {
-    console.log(email);
+    console.log(this.email);
   }
 }
