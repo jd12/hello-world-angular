@@ -3,23 +3,7 @@ import { CoursesService } from './courses.service';
 
 @Component({
   selector: 'courses',
-  template: `
-              <h2>{{ title  }}</h2>
-              <ul>
-                  <li *ngFor="let course of courses">{{ course }}</li>
-              </ul>
-              <!-- Property bingding -->
-              <img [src]="imageUrl" />
-              <br>
-              <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
-              <br><br>
-              {{ course.title }} <br>
-              {{ course.description | summary:10 }} <br>
-              {{ course.students | number }} <br>
-              {{ course.rating | number:'1.2-2' }} <br>
-              {{ course.price | currency }} <br>
-              {{ course.releaseDate | date:'mediumDate' }}
-            `
+  templateUrl: './courses.component.html' 
 })
 export class CoursesComponent {
   title = "List of courses"
