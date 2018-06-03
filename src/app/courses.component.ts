@@ -14,7 +14,7 @@ import { CoursesService } from './courses.service';
               <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
               <br><br>
               {{ course.title }} <br>
-              {{ course.description }} <br>
+              {{ course.description | summary:10 }} <br>
               {{ course.students | number }} <br>
               {{ course.rating | number:'1.2-2' }} <br>
               {{ course.price | currency }} <br>
