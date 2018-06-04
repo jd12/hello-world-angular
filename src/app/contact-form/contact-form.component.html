@@ -1,32 +1,34 @@
 <form #form="ngForm" (ngSubmit)="submit()" class="" action="index.html" method="post">
-  <div class="form-group">
-    <label for="firstName">First Name</label>
-    <input
-      required
-      minlength="3"
-      maxlength="10"
-      pattern="banana"
-      ngModel
-      name="firstName"
-      id = "firstName"
-      #firstName="ngModel"
-      type="text" class="form-control" value="">
-           <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
-             <div *ngIf="firstName.errors.required">
-               First Name is Required
-             </div>
-             <div *ngIf="firstName.errors.minlength">
-               First Name should be minimum 3 characters
-             </div>
-             <div *ngIf="firstName.errors.pattern">
-               First Name does not match pattern
-             </div>
-           </div>
+  <div ngModelGroup="contact" #contact="ngModelGroup">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input
+        required
+        minlength="3"
+        maxlength="10"
+        pattern="banana"
+        ngModel
+        name="firstName"
+        id="firstName"
+        #firstName="ngModel"
+        type="text" class="form-control" value="">
+      <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+        <div *ngIf="firstName.errors.required">
+          First Name is Required
+        </div>
+        <div *ngIf="firstName.errors.minlength">
+          First Name should be minimum 3 characters
+        </div>
+        <div *ngIf="firstName.errors.pattern">
+          First Name does not match pattern
+        </div>
+      </div>
+    </div>
   </div>
   <div class="form-group">
     <label for="comment">Comment</label>
     <textarea ngModel id="comment" class="form-control" name="comment" rows="10" cols="30"></textarea>
   </div>
-  <button class="btn btn-primary" name="button">Submit</button>
+  <button class="btn btn-primary" name="button" [disabled]="!form.valid">Submit</button>
 
 </form>
