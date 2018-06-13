@@ -1,17 +1,35 @@
-<form>
-    <div class="form-group">
+<form [formGroup]="form">
+    <div class="form-group has-feedback"
+          [ngClass]="{
+            'has-success': username.valid,
+            'has-error': username.invalid
+          }">
         <label for="username">Username</label>
-        <input 
-            id="username" 
-            type="text" 
+        <div *ngIf="username.dirty && username.invalid" class="inner-addon right-addon">
+          <i class="glyphicon glyphicon-remove"></i>
+        </div>
+        <div *ngIf="username.dirty && username.valid" class="inner-addon right-addon">
+          <span class="glyphicon glyphicon-ok"></span>
+        </div>
+
+        <input
+            formControlName="username"
+            id="username"
+            type="text"
             class="form-control">
+
     </div>
     <div class="form-group">
         <label for="password">Password</label>
-        <input 
-            id="password" 
-            type="text" 
+        <input
+            id="password"
+            type="text"
             class="form-control">
+    </div>
+
+    <div class="inner-addon right-addon">
+      <i class="glyphicon glyphicon-search"></i>
+      <input type="text" class="form-control" placeholder="Search" />
     </div>
     <button class="btn btn-primary" type="submit">Sign Up</button>
 </form>
